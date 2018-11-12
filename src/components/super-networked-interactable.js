@@ -84,7 +84,15 @@ AFRAME.registerComponent("super-networked-interactable", {
 
   _onOwnershipLost: function() {
     this.el.setAttribute("body", { type: "static" });
-    this.el.emit("grab-end", { hand: this.hand });
+    const grabbers = this.el.components.grabbable.grabbers;
+    for (let i = 0; i < grabbers.length; i++) {
+      const grabber = grabbers[i];
+      const superHands = grabber.components["super-hands"];
+      console.log(grabber);
+      superHands.el.emit(superHands.data.grabEndButtons[0], { targetEntity: this.el });
+      superHands.el.emit(superHands.data.dragDropEndButtons[0], this.el);
+      superHands.el.emit(superHands.data.activateEndButtons[0], this.el);
+    }
     this.hand = null;
     this._syncCounterRegistration();
   },
