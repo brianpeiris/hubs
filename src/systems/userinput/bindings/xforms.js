@@ -145,5 +145,10 @@ export const xforms = {
       state.touching = frame[src.touching];
       return state;
     };
+  },
+  quaternion_difference: function(frame, src, dest, state) {
+    frame[dest.value] = qDifference(frame[src.value], state);
+    state = frame[src.value];
+    return state;
   }
 };

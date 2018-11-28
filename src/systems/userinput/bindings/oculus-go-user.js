@@ -185,6 +185,11 @@ export default function generate3DOFTriggerBindings(device) {
         src: { value: dpadCenterStrip },
         priority: 200,
         xform: xforms.noop
+      },
+      {
+          src: { value: device.pose },
+          dest: { value: paths.actions.rightHand.pose },
+          xform: xforms.quaternion_difference
       }
     ],
 

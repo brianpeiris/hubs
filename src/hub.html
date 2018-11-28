@@ -33,6 +33,7 @@
         stats-plus="false"
         action-to-event__mute="path: /actions/muteMic; event: action_mute;"
         action-to-event__focus_chat="path: /actions/focusChat; event: action_focus_chat;"
+        transform-controls-system
     >
 
         <a-assets>
@@ -169,6 +170,7 @@
                     body="type: dynamic; shape: none; mass: 1;"
                     scale="0.5 0.5 0.5"
                     animation__spawn="property: scale; delay: 50; dur: 200; from: 0.5 0.5 0.5; to: 1 1 1; easing: easeInQuad"
+                    rotatable
                     grabbable
                     stretchable="useWorldPosition: true; usePhysics: never"
                     hoverable

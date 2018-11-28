@@ -282,6 +282,11 @@ export const keyboardMouseUserBindings = addSetsToBindings({
 
   [sets.cursorHoldingInteractable]: [
     {
+      src: { value: paths.device.smartMouse.cursorPose },
+      dest: { value: paths.actions.cursor.transformControlsRotation },
+      xform: xforms.copy // quaternion diff needed
+    },
+    {
       src: {
         bool: paths.device.keyboard.key("shift"),
         value: paths.device.mouse.wheel
@@ -329,6 +334,16 @@ export const keyboardMouseUserBindings = addSetsToBindings({
       dest: { value: paths.actions.cursor.grab },
       xform: xforms.rising,
       priority: 1
+    },
+    {
+      src: { value: paths.device.keyboard.key("r") },
+      dest: { value: paths.actions.rotationMode },
+      xform: xforms.copy
+    },
+    {
+      src: { value: paths.device.smartMouse.cursorPose },
+      dest: { value: paths.actions.cursor.transformControlsRotation },
+      xform: xforms.copy // quaternion diff needed
     }
   ],
   [sets.inputFocused]: [

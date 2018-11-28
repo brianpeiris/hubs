@@ -98,6 +98,7 @@ import "./systems/userinput/userinput";
 import "./systems/camera-mirror";
 import "./systems/userinput/userinput-debug";
 import "./systems/frame-scheduler";
+import "./systems/transform-controls";
 
 import "./gltf-component-mappings";
 
