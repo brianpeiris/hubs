@@ -7,6 +7,15 @@ export const xforms = {
   copy: function(frame, src, dest) {
     frame[dest.value] = frame[src.value];
   },
+  poseOnRise: function(frame, src, dest, state = { bool: false, pose: new Pose() }) {
+    if (!state.bool && frame[src.bool]) {
+      console.log("saving pose!");
+      state.pose.copy(frame[src.value]);
+    }
+    state.bool = frame[src.bool];
+    frame[dest.value] = state.pose;
+    return state;
+  },
   scale: function(scalar) {
     return function scale(frame, src, dest) {
       if (frame[src.value] !== undefined) {

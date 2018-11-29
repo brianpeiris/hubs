@@ -30,6 +30,7 @@ paths.actions.cursor.scalePenTip = "/actions/cursorScalePenTip";
 paths.actions.cursor.scaleGrabbedGrabbable = "/actions/cursorScaleGrabbedGrabbable";
 paths.actions.cursor.takeSnapshot = "/actions/cursorTakeSnapshot";
 paths.actions.cursor.transformControlsRotation = "/actions/cursor/transformControlsRotation";
+paths.actions.cursor.transformControlsInitialRotation = "/actions/cursor/transformControlsInitialRotation";
 paths.actions.cursor.displayTransformControlsWidget = "/actions/cursor/displayTransformControlsWidget";
 paths.actions.rightHand = {};
 paths.actions.rightHand.pose = "/actions/rightHandPose";

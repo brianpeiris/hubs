@@ -24,6 +24,11 @@ export class TransformControls {
           right: paths.actions.rightHand.transformControlsRotation,
           left: paths.actions.leftHand.transformControlsRotation,
           cursor: paths.actions.cursor.transformControlsRotation
+        },
+        initialRotation: {
+          right: paths.actions.rightHand.transformControlsInitialRotation,
+          left: paths.actions.leftHand.transformControlsInitialRotation,
+          cursor: paths.actions.cursor.transformControlsInitialRotation
         }
       },
       superhands: {
@@ -59,9 +64,15 @@ export class TransformControls {
         for (let i = 0; i < rotatables.length; i++) {
           const rotatable = rotatables[i];
           if (grabbed.object3D === rotatable.object3D) {
-            const input = userinput.get(paths.rotation[hand]);
-            if (input) {
-              rotatable.object3D.setRotationFromQuaternion(input.orientation);
+            const rotation = userinput.get(paths.rotation[hand]);
+            const initialRotation = userinput.get(paths.initialRotation[hand]);
+            if (rotation && initialRotation) {
+              rotatable.object3D.setRotationFromQuaternion(
+                initialRotation.orientation
+                  .clone()
+                  .conjugate()
+                  .multiply(rotation.orientation)
+              );
               rotatable.object3D.matrixNeedsUpdate = true;
             }
           }
@@ -72,11 +83,10 @@ export class TransformControls {
 }
 
 AFRAME.registerComponent("rotating", {
-    schema: {
-        hand: {type: "string"}
-    },
-    tick(){
-    }
+  schema: {
+    hand: { type: "string" }
+  },
+  tick() {}
 });
 
 AFRAME.registerComponent("rotatable", {
@@ -85,13 +95,13 @@ AFRAME.registerComponent("rotatable", {
       console.log("setting rotatable in system");
       this.rotatable = new Rotatable();
       this.rotatable.init(this.el.object3D, AFRAME.scenes[0].systems["transform-controls-system"].transformControls);
-    }, 5000);
+    }, 3000);
   },
   onGrabStart(e) {
     if (AFRAME.scenes[0].systems.userinput.get(paths.actions.rotationMode)) {
-      console.log("grabbing rotatatable???@!!!");
       e.preventDefault();
       e.stopPropagation();
+      e.stopImmediatePropagation();
     }
   },
   onGrabEnd(e) {

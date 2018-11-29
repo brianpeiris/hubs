@@ -13,6 +13,12 @@ const k = name => {
   return `/keyboard-mouse-user/keyboard-var/${name}`;
 };
 
+const initialRotationBinding = {
+  src: { bool: paths.actions.cursor.grab, value: paths.device.smartMouse.cursorPose },
+  dest: { value: paths.actions.cursor.transformControlsInitialRotation },
+  xform: xforms.poseOnRise // quaternion diff needed
+};
+
 export const keyboardMouseUserBindings = addSetsToBindings({
   [sets.global]: [
     {
@@ -286,6 +292,7 @@ export const keyboardMouseUserBindings = addSetsToBindings({
       dest: { value: paths.actions.cursor.transformControlsRotation },
       xform: xforms.copy // quaternion diff needed
     },
+    initialRotationBinding,
     {
       src: {
         bool: paths.device.keyboard.key("shift"),
@@ -344,7 +351,8 @@ export const keyboardMouseUserBindings = addSetsToBindings({
       src: { value: paths.device.smartMouse.cursorPose },
       dest: { value: paths.actions.cursor.transformControlsRotation },
       xform: xforms.copy // quaternion diff needed
-    }
+    },
+    initialRotationBinding
   ],
   [sets.inputFocused]: [
     {
