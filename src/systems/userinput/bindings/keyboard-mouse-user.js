@@ -12,6 +12,7 @@ const dropWithEsc = "/vars/mouse-and-keyboard/drop_with_esc";
 const k = name => {
   return `/keyboard-mouse-user/keyboard-var/${name}`;
 };
+const zero = k("zero");
 
 export const keyboardMouseUserBindings = addSetsToBindings({
   [sets.global]: [
@@ -353,6 +354,47 @@ export const keyboardMouseUserBindings = addSetsToBindings({
       src: { value: paths.device.mouse.buttonLeft },
       dest: { value: paths.actions.cursor.grab },
       xform: xforms.rising
+    }
+  ],
+
+  [sets.rightHandHoveringOnRotatable]: [
+    {
+      src: { value: paths.device.mouse.buttonRight },
+      dest: { value: paths.actions.rightHandRotationActive },
+      xform: xforms.copy,
+      priority: 300
+    }
+  ],
+  [sets.rightHandHoldingRotatable]: [
+    {
+      src: { value: paths.device.mouse.buttonRight },
+      dest: { value: paths.actions.rightHandRotationActive },
+      xform: xforms.copy,
+      priority: 300
+    }
+  ],
+  [sets.rightHandRotationActive]: [
+    {
+      src: { value: paths.device.mouse.buttonRight },
+      dest: { value: paths.actions.rightHandRotationActive },
+      xform: xforms.copy,
+      priority: 400
+    },
+    {
+      src: { value: paths.device.smartMouse.cursorPose },
+      dest: { value: paths.actions.rightHandSelectionRotation },
+      xform: xforms.localQuaternionDifference
+    },
+    {
+      src: { value: "" },
+      dest: { value: zero },
+      xform: xforms.always(0)
+    },
+    {
+      src: { x: zero, y: zero },
+      dest: { value: paths.actions.cameraDelta },
+      xform: xforms.compose_vec2,
+      priority: 100
     }
   ]
 });

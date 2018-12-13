@@ -2,6 +2,10 @@ import { Pose } from "../pose";
 import { angleTo4Direction } from "../../../utils/dpad";
 
 const zeroVec2 = [0, 0];
+function quaternionDifference(a, b) {
+    const q1 = new THREE.Quaternion();
+    return q1.multiplyQuaternions(q1.copy(a).inverse(), b);
+}
 export const xforms = {
   noop: function() {},
   copy: function(frame, src, dest) {
@@ -143,6 +147,16 @@ export const xforms = {
         !state.touching || !frame[src.touching] ? 0 : scale * (frame[src.value] + 1 - (state.value + 1));
       state.value = frame[src.value];
       state.touching = frame[src.touching];
+      return state;
+    };
+  },
+  localQuaternionDifference() {
+    return function(frame, src, dest, state = { initial: null }) {
+      if (!state.initial) {
+        state.initial = frame[src.value];
+      }
+      frame[dest.value] = frame[src.value];
+      frame[dest.value].orientation = quaternionDifference(frame[src.value].orientation, state.initial.orientation);
       return state;
     };
   }
