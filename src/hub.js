@@ -49,6 +49,7 @@ import "./components/freeze-controller";
 import "./components/icon-button";
 import "./components/text-button";
 import "./components/block-button";
+import "./components/rotate-object-button";
 import "./components/visible-while-frozen";
 import "./components/stats-plus";
 import "./components/networked-avatar";
@@ -75,7 +76,6 @@ import "./components/stop-event-propagation";
 import "./components/animation";
 import "./components/follow-in-lower-fov";
 import "./components/matrix-auto-update";
-import "./systems/rotate-selected-object";
 
 import ReactDOM from "react-dom";
 import React from "react";

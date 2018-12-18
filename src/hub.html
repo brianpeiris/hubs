@@ -165,7 +165,7 @@
             <template id="interactable-media">
                 <a-entity
                     class="interactable"
-                    rotatable="cursorController: #cursor-controller"
+                    rotatable
                     super-networked-interactable="counter: #media-counter;"
                     body="type: dynamic; shape: none; mass: 1;"
                     scale="0.5 0.5 0.5"
@@ -201,6 +201,8 @@
                             </a-entity>
                             <a-entity mixin="rounded-text-button" class="hide-when-pinned" remove-networked-object-button position="0 -0.125 0.01"> </a-entity>
                             <a-entity text=" value:remove; width:1.75; align:center;" class="hide-when-pinned" text-raycast-hack position="0 -0.125 0.02"></a-entity>
+                            <a-entity mixin="rounded-text-button" class="hide-when-pinned" rotate-object-button position="0.5 0.0 0.01"> </a-entity>
+                            <a-entity text=" value:rotate; width:1.75; align:center;" class="hide-when-pinned" text-raycast-hack position="0 -0.125 0.02"></a-entity>
                         </a-entity>
                     </a-entity>
                 </a-entity>
@@ -418,6 +420,7 @@
                     material="alphaTest:0.1;"
                     hoverable
                     sound__hud_hover_start="src: #sound_asset-hud_hover_start; on: mouseover; poolSize: 5; positional: false;"
+                    target: {type: "string"}
                     set-sounds-invisible
                 ></a-image>
                 <a-image

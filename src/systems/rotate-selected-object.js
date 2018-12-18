@@ -200,7 +200,8 @@ var setupGizmo = function(gizmoMap) {
 
 AFRAME.registerComponent("rotatable", {
   schema: {
-    cursorController: { type: "selector" }
+      cursorController: { type: "selector" },
+      eye: {type: "selector"},
   },
   init() {
     // Reusable utility variables
@@ -253,6 +254,8 @@ AFRAME.registerComponent("rotatable", {
   },
 
   tick() {
+    const cursorController = this.data.cursorController;
+
     const userinput = AFRAME.scenes[0].systems.userinput;
     let interactorOne, interactorTwo;
     if (this.hand) {
@@ -260,19 +263,19 @@ AFRAME.registerComponent("rotatable", {
         const q = userinput.get(paths.actions.leftHandSelectionRotation);
         const q2 = new THREE.Quaternion(q.x, q.z, q.y, q.w);
         this.el.object3D.rotation.setFromQuaternion(q2);
-	        this.el.object3D.picker[ "rotate" ].visible = true;
+        this.el.object3D.picker["rotate"].visible = true;
       } else if (
         (this.hand.id === "player-right-controller" || this.hand.id === "cursor") &&
         userinput.get(paths.actions.rightHandRotationActive)
       ) {
-	      this.el.object3D.picker[ "rotate" ].visible = true;
+        this.el.object3D.picker["rotate"].visible = true;
         const q = userinput.get(paths.actions.cursor.pose).orientation;
         this.el.object3D.rotation.setFromQuaternion(q);
       } else {
-	        this.el.object3D.picker[ "rotate" ].visible = false;
+        this.el.object3D.picker["rotate"].visible = false;
       }
     } else {
-	      this.el.object3D.picker[ "rotate" ].visible = false;
+      this.el.object3D.picker["rotate"].visible = false;
     }
 
     userinput.toggleSet(sets.leftHandHoldingRotatable, this.hand && this.hand.id === "player-left-controller");
@@ -306,7 +309,7 @@ AFRAME.registerComponent("rotatable", {
       sets.rightHandRotationActive,
       this.hand &&
         (this.hand.id === "player-right-controller" || this.hand.id === "cursor") &&
-        userinput.get(paths.actions.rightHandRotationActive)
+            userinput.get(paths.actions.rightHandRotationActive)
     );
   }
 });
