@@ -27,6 +27,7 @@ AFRAME.registerComponent("rotate-object-button", {
       this.iX = AFRAME.scenes[0].systems.userinput.get(paths.device.mouse.coords)[0];
       this.iY = AFRAME.scenes[0].systems.userinput.get(paths.device.mouse.coords)[1];
       e.stopImmediatePropagation();
+      this.iPose = AFRAME.scenes[0].systems.userinput.get(paths.actions.cursor.pose).orientation.clone();
     };
   },
 
@@ -49,15 +50,32 @@ AFRAME.registerComponent("rotate-object-button", {
       this.el.parentNode.parentNode.parentNode.object3D.quaternion.copy(this.initialQuaternion);
       const cX = AFRAME.scenes[0].systems.userinput.get(paths.device.mouse.coords)[0];
       const cY = AFRAME.scenes[0].systems.userinput.get(paths.device.mouse.coords)[1];
-      // const dx = document.querySelector("#cursor").object3D.position.x - this.initialCursorPosition.x;
-      // const dy = document.querySelector("#cursor").object3D.position.y - this.initialCursorPosition.y;
+      const cPose = AFRAME.scenes[0].systems.userinput.get(paths.actions.cursor.pose).orientation.clone();
       const dx = cX - this.iX;
       const dy = -cY + this.iY;
-      const threshold = 0.3;
-      if (Math.abs(dx) > Math.abs(dy)) {
-          this.el.parentNode.parentNode.parentNode.object3D.rotateY(dx);//rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), dx);
+      const useMouse = false;
+      if (useMouse) {
+        if (Math.abs(dx) > Math.abs(dy)) {
+          this.el.parentNode.parentNode.parentNode.object3D.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), dx);
+        } else {
+          this.el.parentNode.parentNode.parentNode.object3D.rotateX(dy);
+        }
       } else {
-        this.el.parentNode.parentNode.parentNode.object3D.rotateX(dy);
+        const foo = this.iPose
+          .clone()
+          .inverse()
+          .multiply(cPose);
+        if (
+          Math.abs(foo.angleTo(new THREE.Quaternion(0, 1, 0, 0))) >
+          Math.abs(foo.angleTo(new THREE.Quaternion(0, 0, 1, 0)))
+        ) {
+          this.el.parentNode.parentNode.parentNode.object3D.rotateOnWorldAxis(
+            new THREE.Vector3(0, 1, 0),
+            foo.angleTo(new THREE.Quaternion(0, 1, 0, 0))
+          );
+        } else {
+          this.el.parentNode.parentNode.parentNode.object3D.rotateX(foo.angleTo(new THREE.Quaternion(0, 0, 1, 0)));
+        }
       }
     }
   }
