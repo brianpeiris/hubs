@@ -32,3 +32,4 @@ sets.leftHandRotationActive = "leftHandRotationActive";
 
 sets.rightHandHoldingRotatable = "/actions/rightHandHoldingRotatable";
 sets.leftHandHoldingRotatable = "/actions/leftHandHoldingRotatable";
+sets.rotatingObjectWithCursor = "rotatingObjectWithCursor";
