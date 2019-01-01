@@ -1,0 +1,304 @@
+.spoke__download-button__1TiaZ, .spoke__play-button__2GBOE, .spoke__close-video__3BaBV, .loading-panel, body {
+  font-family: 'Open Sans', sans-serif; }
+
+.spoke__download-button__1TiaZ {
+  width: 350px; }
+  @media (max-width: 768px) {
+    .spoke__download-button__1TiaZ {
+      width: 327px; } }
+
+.spoke__download-button__1TiaZ, .spoke__play-button__2GBOE, .spoke__close-video__3BaBV {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: #FF3464;
+  font-size: 1em;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.loader-wrap {
+  pointer-events: none;
+  position: relative;
+  width: 100px;
+  height: 90px; }
+
+.loading-panel {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #d7e5ec;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.loading-panel__logo {
+  width: 247px;
+  height: 57px;
+  margin: 20px 0; }
+
+.loader-center,
+.loader:before,
+.loader:after {
+  background: #555;
+  -webkit-animation: loader-animation 1s infinite ease-in-out;
+  animation: loader-animation 1s infinite ease-in-out;
+  width: 0.6em;
+  height: 1em;
+  border-radius: 5px; }
+
+.loader {
+  color: #555;
+  text-indent: -9999em;
+  margin-left: 4em;
+  margin-top: 4em;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.loader-center,
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: ''; }
+
+.loader-center {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+.loader:before {
+  left: -1.2em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.loader:after {
+  left: 1.2em; }
+
+@-webkit-keyframes loader-animation {
+  0%,
+  80%,
+  100% {
+    height: 2em;
+    top: 0; }
+  40% {
+    height: 3.5em;
+    top: -0.75em; } }
+
+@keyframes loader-animation {
+  0%,
+  80%,
+  100% {
+    height: 2em;
+    top: 0; }
+  40% {
+    height: 3.5em;
+    top: -0.75em; } }
+
+body {
+  background: black;
+  color: white;
+  margin: 0;
+  overflow: hidden; }
+
+.spoke__bg__bnhzt {
+  background: radial-gradient(#222C41 0%, black 100%);
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2; }
+
+.spoke__ui__3SkGF {
+  display: flex;
+  position: relative;
+  flex-direction: column; }
+
+.spoke__content__cuTYB {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+  align-items: center;
+  justify-content: center; }
+
+.spoke__header__gmRYo {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white; }
+
+.spoke__header-links__13b3m {
+  display: flex;
+  margin: 24px 12px; }
+  @media (max-width: 450px) {
+    .spoke__header-links__13b3m {
+      justify-content: space-between; } }
+  .spoke__header-links__13b3m a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 18px; }
+
+.spoke__hero-pane__220zQ {
+  display: flex;
+  height: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center; }
+  @media (max-width: 1280px) {
+    .spoke__hero-pane__220zQ {
+      flex-direction: column; } }
+
+.spoke__spoke-logo__7laRd {
+  position: relative; }
+  .spoke__spoke-logo__7laRd img {
+    width: 400px; }
+    @media (max-width: 450px) {
+      .spoke__spoke-logo__7laRd img {
+        width: 320px; } }
+
+.spoke__primary-tagline__16Nd4 {
+  position: absolute;
+  right: 6px;
+  bottom: -8px;
+  font-weight: bold;
+  font-size: 1.7em; }
+
+.spoke__secondary-tagline__24UiL {
+  font-weight: lighter;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 48px;
+  margin-left: 12px;
+  margin-right: 12px; }
+  @media (max-width: 450px) {
+    .spoke__secondary-tagline__24UiL {
+      font-size: 1.3em; } }
+  .spoke__secondary-tagline__24UiL a {
+    color: white; }
+
+.spoke__hero-message__2h2gR {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 36px; }
+  @media (max-width: 1280px) {
+    .spoke__hero-message__2h2gR {
+      text-shadow: 0px 0px 4px black;
+      order: 2;
+      width: 100%;
+      margin: 32px 0;
+      height: auto; } }
+
+.spoke__hero-video__2WkkA {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin-left: 32px;
+  flex: 1;
+  z-index: -1;
+  border-radius: 8px; }
+  @media (max-width: 1280px) {
+    .spoke__hero-video__2WkkA {
+      display: none; } }
+
+.spoke__preview-video__aSe4o {
+  width: 90%;
+  border-radius: 12px 0 0 12px;
+  z-index: -1; }
+
+.spoke__download-button__1TiaZ {
+  height: 64px;
+  border-radius: 32px;
+  background-color: #2F80ED;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column; }
+  .spoke__download-button__1TiaZ .spoke__version__2wVg1 {
+    font-size: 0.8em;
+    font-weight: lighter; }
+
+.spoke__play-button__2GBOE, .spoke__close-video__3BaBV {
+  background-color: #404040;
+  margin: auto;
+  padding: 0px 82px; }
+
+.spoke__tutorial-buttons__1x5Ke {
+  margin-top: 64px; }
+  .spoke__tutorial-buttons__1x5Ke button {
+    margin: 32px auto; }
+
+.spoke__close-video__3BaBV {
+  margin-top: 12px; }
+
+.spoke__browse-versions__2hDU6 {
+  color: silver;
+  margin-top: 12px;
+  display: block;
+  text-align: center;
+  width: 100%; }
+
+.spoke__thank-you__2I3E1 {
+  text-align: center; }
+  .spoke__thank-you__2I3E1 a {
+    color: silver; }
+
+.spoke__player-overlay__3oBSD {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.spoke__player-content__l6070 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.spoke__player-video__PzO4t {
+  width: 960px;
+  height: 540px; }
+  @media (max-width: 980px), (max-height: 760px) {
+    .spoke__player-video__PzO4t {
+      width: 640px;
+      height: 360px; } }
+  @media (max-width: 650px), (max-height: 580px) {
+    .spoke__player-video__PzO4t {
+      width: 480px;
+      height: 270px; } }
+  @media (max-width: 490px), (max-height: 480px) {
+    .spoke__player-video__PzO4t {
+      width: 320px;
+      height: 180px; } }
+
+.spoke__attribution__2jTC8 {
+  position: absolute;
+  bottom: -40px;
+  right: 84px;
+  color: #404040; }
+
+/*# sourceMappingURL=spoke-bf83a1672fa69a38d72c.css.map*/

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>avatar selector</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+        // HACK Chrome on iOS breaks completely if we don't do this because a-frame's webvr-polyfill doesn't recognize
+        // Google Chrome on iOS correctly. We can remove this when we upgrade a-frame past 0.8.2.
+        if (!window.WebVRConfig) { window.WebVRConfig = {}; }
+    </script>
+<link href="/assets/stylesheets/avatar-selector-8b27a4f7c955d4661eee.css" rel="stylesheet"><script type="text/javascript" src="/assets/js/vendor-03d628bbce04e49fe73f.js"></script><script type="text/javascript" src="/assets/js/engine-761584ff4781c26aeb8d.js"></script><script type="text/javascript" src="/assets/js/avatar-selector-aede4ada46347f72e5b8.js"></script></head>
+
+<body>
+    <div id="selector-root"></div>
+</body>
+
+</html>
