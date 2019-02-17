@@ -11,6 +11,8 @@ patchWebGLRenderingContext();
 
 import "./assets/stylesheets/avatar-selector.scss";
 import "three/examples/js/loaders/GLTFLoader";
+import "react-infinite-scroller";
+import "markdown-it";
 
 import "./components/animation-mixer";
 import "./components/audio-feedback";
