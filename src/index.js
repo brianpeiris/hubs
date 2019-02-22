@@ -7,6 +7,7 @@ import HomeRoot from "./react-components/home-root";
 import AuthChannel from "./utils/auth-channel";
 import { createAndRedirectToNewHub, connectToReticulum } from "./utils/phoenix-utils";
 import Store from "./storage/store";
+import "aframe";
 
 const qs = new URLSearchParams(location.search);
 registerTelemetry("/home", "Hubs Home Page");
