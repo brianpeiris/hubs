@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import InfiniteScroll from "react-infinite-scroller";
+import markdownit from "markdown-it";
 
 import "./assets/stylesheets/index.scss";
 import registerTelemetry from "./telemetry";
