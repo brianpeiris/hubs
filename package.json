@@ -148,6 +148,7 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
+    "selenium-webdriver": "^4.0.0-alpha.7",
     "selfsigned": "^1.10.2",
     "shelljs": "^0.8.1",
     "spritesheet-js": "github:mozillareality/spritesheet.js#hubs/master",
